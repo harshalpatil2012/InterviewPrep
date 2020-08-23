@@ -1,2 +1,2 @@
 # InterviewPrep
-Collections of Java interview question
+Collections of Java interview questions
