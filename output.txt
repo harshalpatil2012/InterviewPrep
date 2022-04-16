@@ -1,0 +1,5 @@
+ Presence API, v2
+ Authentication API, v6
+ Video Compression API, v3
+ Search API, v6
+ Data Storage API, v10
