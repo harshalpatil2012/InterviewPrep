@@ -7,6 +7,7 @@ import java.util.PriorityQueue;
 
 /**
  * Find kth smallest or largest number
+ * 
  * @author harshal
  *
  */
@@ -22,6 +23,15 @@ public class FindKthLargest {
 		int k = 3;
 
 		System.out.println("K'th smallest element in the array is " + findKthSmallest(A, k));
+
+		// how to find the kth smallest number in an array using the quickselect
+		// algorithm:
+		int kthSmallest = kthSmallest(arr, k); // returns 4
+		System.out.println("K'th smallest element in the array is " + kthSmallest);
+
+		kthSmallest = kthSmallestUsingBinary(arr, k); // returns 4
+		System.out.println("K'th smallest element in the array is " + kthSmallest);
+
 	}
 
 	public static int findKthLargest(int[] nums, int k) {
@@ -44,9 +54,9 @@ public class FindKthLargest {
 			q.offer(n);
 			System.out.println("findKthSmall():element inserted into the array " + n);
 			if (q.size() > k) {
-				
+
 				int r = q.poll();
-				System.out.println("findKthSmall():element removed from the array " +r );
+				System.out.println("findKthSmall():element removed from the array " + r);
 			}
 		}
 		return q.peek();
@@ -71,6 +81,74 @@ public class FindKthLargest {
 		}
 		// return the root of max-heap
 		return pq.peek();
+	}
+
+	public static int kthSmallest(int[] arr, int k) {
+		if (k < 1 || k > arr.length) {
+			throw new IllegalArgumentException("k is out of range.");
+		}
+		return quickSelect(arr, 0, arr.length - 1, k);
+	}
+
+	private static int quickSelect(int[] arr, int left, int right, int k) {
+		if (left == right) {
+			return arr[left];
+		}
+		int pivotIndex = partition(arr, left, right);
+		if (k == pivotIndex + 1) {
+			return arr[pivotIndex];
+		} else if (k < pivotIndex + 1) {
+			return quickSelect(arr, left, pivotIndex - 1, k);
+		} else {
+			return quickSelect(arr, pivotIndex + 1, right, k);
+		}
+	}
+
+	private static int partition(int[] arr, int left, int right) {
+		int pivotValue = arr[right];
+		int pivotIndex = left;
+		for (int i = left; i < right; i++) {
+			if (arr[i] < pivotValue) {
+				int temp = arr[i];
+				arr[i] = arr[pivotIndex];
+				arr[pivotIndex] = temp;
+				pivotIndex++;
+			}
+		}
+		int temp = arr[right];
+		arr[right] = arr[pivotIndex];
+		arr[pivotIndex] = temp;
+		return pivotIndex;
+	}
+
+	public static int kthSmallestUsingBinary(int[] arr, int k) {
+		if (k < 1 || k > arr.length) {
+			throw new IllegalArgumentException("k is out of range.");
+		}
+		int left = Integer.MIN_VALUE;
+		int right = Integer.MAX_VALUE;
+		while (left <= right) {
+			int mid = left + (right - left) / 2;
+			int count = countLessThan(arr, mid);
+			if (count == k - 1) {
+				return mid;
+			} else if (count < k - 1) {
+				left = mid + 1;
+			} else {
+				right = mid - 1;
+			}
+		}
+		return -1;
+	}
+
+	private static int countLessThan(int[] arr, int value) {
+		int count = 0;
+		for (int i = 0; i < arr.length; i++) {
+			if (arr[i] < value) {
+				count++;
+			}
+		}
+		return count;
 	}
 
 }

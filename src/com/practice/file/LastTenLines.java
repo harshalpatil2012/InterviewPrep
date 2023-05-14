@@ -20,7 +20,7 @@ import java.io.*;
 public class LastTenLines {
 	public static void main(String[] args) {
 		try {
-			File file = new File("input.txt");
+			java.io.File file = new java.io.File("input.txt");
 			RandomAccessFile randomAccessFile = new RandomAccessFile(file, "r");
 			long fileLength = file.length();
 			long pointerPosition = fileLength - 1;

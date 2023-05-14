@@ -8,6 +8,8 @@ public class LongestPalindrome {
         for (int i = 1; i <= s.length(); i++) {
             StringBuilder s1 = new StringBuilder(s.substring(0, i));
             StringBuilder s2 = new StringBuilder(s.substring(0, i));
+            
+            System.out.println("s1 is " + s1  + "  s2 is " + s2); 
             s2.reverse();
             if (s1.toString()
                 .equals(s2.toString())) {
@@ -21,7 +23,7 @@ public class LongestPalindrome {
     }
 
     public static void main(String[] args) {
-        String s = "HYTBCABADEFGHABCDEDCBAGHTFYW1234567887654321ZWETYGDE";
+        String s = "absesad";
 
         for (int i = 0; i < s.length(); i++)
             checkSubString(s.substring(i, s.length()));
