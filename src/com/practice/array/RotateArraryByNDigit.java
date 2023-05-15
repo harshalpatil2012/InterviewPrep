@@ -1,5 +1,12 @@
 package com.practice.array;
 
+/*
+ * Before Rotation
+1 2 3 4 5 
+After Rotation
+3 4 5 1 2 
+*/
+
 public class RotateArraryByNDigit {
 	static void leftRotate(int arr[], int d, int n) {
 		int temp[] = new int[d];
