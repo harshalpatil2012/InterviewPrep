@@ -2,7 +2,9 @@ package com.practice.array;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.PriorityQueue;
 
 /**
@@ -32,6 +34,20 @@ public class FindKthLargest {
 		kthSmallest = kthSmallestUsingBinary(arr, k); // returns 4
 		System.out.println("K'th smallest element in the array is " + kthSmallest);
 
+		Map<String, Integer> scores = new HashMap()<>();
+        scores.put("Alice", 95);
+        scores.put("Bob", 80);
+        scores.put("Charlie", 70);
+        scores.put("abc", 100); // Adding an entry with key "abc"
+
+        String targetKey = "abc";
+
+        // Using lambda expression to iterate over the entries and check the target key
+        scores.forEach((name, score) -> {
+            if (name.equals(targetKey)) {
+                System.out.println("Found key " + targetKey + ": " + score);
+            }
+        });
 	}
 
 	public static int findKthLargest(int[] nums, int k) {

@@ -53,7 +53,7 @@ public class NonRepeatingCharInArray {
 	 * store repeated and non-repeated character separately, at the end of
 	 * iteration, first element from List is our first non repeated character from
 	 * String.
-	 */f
+	 */
 	public static char firstNonRepeatingChar(String word) {
 		List<Character> nonRepeating = new ArrayList<>();
 		for (int i = 0; i < word.length(); i++) {

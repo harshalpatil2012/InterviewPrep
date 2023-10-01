@@ -15,7 +15,7 @@ import java.util.HashSet;
  */
 public class LinkedListDuplicate {
     static Node head; // head of list
-
+Object
     /* Linked list Node*/
     static class Node {
         int data;

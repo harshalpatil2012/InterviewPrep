@@ -1,5 +1,8 @@
 package com.practice.string.substring;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Longest Common Substring Problem Statement Given two strings 's1' and 's2',
  * find the length of the longest substring which is common in both the strings.
@@ -37,6 +40,12 @@ public class LongestCommonSubstring {
 		String s2 = "cbda";
 		int longestCommonSubstring = findLongestCommonSubstring(s1, s2);
 		System.out.println("Length of longest common substring: " + longestCommonSubstring);
+
+		//without any input
+		String s = "abcabcbb";
+		int length = lengthOfLongestSubstring(s);
+		System.out.println("Length of the longest substring in \"" + s + "\": " + length);
+
 	}
 
 	public static int findLongestCommonSubstringOptimized(String s1, String s2) {
@@ -58,4 +67,25 @@ public class LongestCommonSubstring {
 
 		return maxLength;
 	}
+
+	public static int lengthOfLongestSubstring(String s) {
+		int maxLength = 0;
+		int left = 0;
+		int right = 0;
+		Set<Character> uniqueChars = new HashSet<>();
+
+		while (right < s.length()) {
+			if (!uniqueChars.contains(s.charAt(right))) {
+				uniqueChars.add(s.charAt(right));
+				maxLength = Math.max(maxLength, right - left + 1);
+				right++;
+			} else {
+				uniqueChars.remove(s.charAt(left));
+				left++;
+			}
+		}
+
+		return maxLength;
+	}
+
 }
