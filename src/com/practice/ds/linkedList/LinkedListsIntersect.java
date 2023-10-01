@@ -4,11 +4,11 @@ import java.io.*;
 import java.util.*;
 
 public class LinkedListsIntersect {
-	public static boolean doLinkedListsIntersect(Collection<SinglyLinkedList> linkedLists) {
+	public static boolean doLinkedListsIntersect(Collection<MySinglyList> linkedLists) {
 		Set<String> visitedNodes = new HashSet<>();
 
-		for (SinglyLinkedList list : linkedLists) {
-			SinglyLinkedList currentNode = list;
+		for (MySinglyList list : linkedLists) {
+			MySinglyList currentNode = list;
 
 			while (currentNode != null) {
 				if (!visitedNodes.add(currentNode.from)) {
@@ -21,8 +21,8 @@ public class LinkedListsIntersect {
 		return false; // No common node found
 	}
 
-	private static SinglyLinkedList findListByFrom(Collection<SinglyLinkedList> linkedLists, String from) {
-		for (SinglyLinkedList list : linkedLists) {
+	private static MySinglyList findListByFrom(Collection<MySinglyList> linkedLists, String from) {
+		for (MySinglyList list : linkedLists) {
 			if (list.from.equals(from)) {
 				return list;
 			}
@@ -34,7 +34,7 @@ public class LinkedListsIntersect {
 		InputStreamReader reader = new InputStreamReader(System.in);
 		BufferedReader bufferedReader = new BufferedReader(reader);
 
-		List<SinglyLinkedList> linkedLists = new ArrayList<>();
+		List<MySinglyList> linkedLists = new ArrayList<>();
 
 		System.out.println("Enter singly-linked lists (e.g., 'a->b', or press Enter to finish):");
 
@@ -42,7 +42,7 @@ public class LinkedListsIntersect {
 		while (!(line = bufferedReader.readLine()).isEmpty()) {
 			String[] nodes = line.trim().split("->");
 			if (nodes.length == 2) {
-				linkedLists.add(new SinglyLinkedList(nodes[0], nodes[1]));
+				linkedLists.add(new MySinglyList(nodes[0], nodes[1]));
 			}
 		}
 
@@ -52,11 +52,11 @@ public class LinkedListsIntersect {
 	}
 }
 
-class SinglyLinkedList {
+class MySinglyList {
 	String from;
 	String to;
 
-	SinglyLinkedList(String from, String to) {
+	MySinglyList(String from, String to) {
 		this.from = from;
 		this.to = to;
 	}
