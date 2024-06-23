@@ -5,22 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b2deea0c-82ba-47a0-b1b8-15e444422b7e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/practice/leetcode/permutations/DifferentWaysToAddParentheses.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InterviewPrep.iml" beforeDir="false" afterPath="$PROJECT_DIR$/InterviewPrep.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/weblogic.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/practice/StackOverflowErrorExample.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/practice/UniqeString.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/practice/array/FindKthLargest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/practice/array/FindKthLargest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/practice/ds/linkedList/LinkedListDuplicate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/practice/ds/linkedList/LinkedListDuplicate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/practice/ds/linkedList/Main1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/practice/ds/map/CustomerHashMap.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Grokking_Patterns.md" beforeDir="false" afterPath="$PROJECT_DIR$/Grokking_Patterns.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -109,7 +108,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1719129853778</updated>
-      <workItem from="1719129855932" duration="4284000" />
+      <workItem from="1719129855932" duration="9272000" />
     </task>
     <servers />
   </component>
