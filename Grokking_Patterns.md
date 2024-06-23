@@ -353,20 +353,198 @@
 3. Invert Binary Tree (medium)
 4. Binary Search Tree Iterator (medium)
 
-
-### 28. Miscellaneous
-
-1. Kth Smallest Number (hard)
-
-### 29. Greedy Techniques
+### 28. Pattern:. Greedy Techniques
 1. Jump Game I
 2. Gas Stations
 3. Two City Scheduling
 4. Minimum Number of Refueling Stops
 5. Jump Game II
 
-### 29. Greedy Techniques
+### 29. Pattern:. Topological Sort
+1. Alien Dictionary
+2. Compilation Order
+3. Verifying an Alien Dictionary
+4. Course Schedule II
+5. Course Schedule
 
+### 30. Pattern:. Knowing What to Track
+The "Knowing What to Track" pattern involves identifying and maintaining specific states, values, or elements throughout the computation to efficiently solve a problem. This often requires data structures like hash maps, sets, or stacks.
+
+---
+
+#### [Palindrome Permutation](https://leetcode.com/problems/palindrome-permutation/)
+Given a string, determine if a permutation of the string could form a palindrome.
+
+---
+
+#### [Valid Anagram](https://leetcode.com/problems/valid-anagram/)
+Given two strings `s` and `t`, return `true` if `t` is an anagram of `s`, and `false` otherwise.
+
+---
+
+#### [Design Tic-Tac-Toe](https://leetcode.com/problems/design-tic-tac-toe/)
+Design a Tic-tac-toe game that is played between two players on a `n x n` grid.
+
+---
+
+#### [Group Anagrams](https://leetcode.com/problems/group-anagrams/)
+Given an array of strings `strs`, group the anagrams together.
+
+---
+
+#### [Maximum Frequency Stack](https://leetcode.com/problems/maximum-frequency-stack/)
+Implement FreqStack, a class which simulates the operation of a stack-like data structure.
+
+---
+
+#### [First Unique Character in a String](https://leetcode.com/problems/first-unique-character-in-a-string/)
+Given a string `s`, find the first non-repeating character in it and return its index. If it does not exist, return `-1`.
+
+---
+
+#### [Find All Anagrams in a String](https://leetcode.com/problems/find-all-anagrams-in-a-string/)
+Given two strings `s` and `p`, return an array of all the start indices of `p`'s anagrams in `s`. You may return the answer in any order.
+
+---
+
+#### [Longest Palindrome by Concatenating Two-Letter Words](https://leetcode.com/problems/longest-palindrome-by-concatenating-two-letter-words/)
+You are given an array of strings `words`. Each element of `words` consists of two lowercase English letters. Create the longest possible palindrome by selecting some elements from `words` and concatenating them in any order and return the length of the palindrome.
+
+---
+
+#### [Ransom Note](https://leetcode.com/problems/ransom-note/)
+Given two strings `ransomNote` and `magazine`, return `true` if `ransomNote` can be constructed by using the letters from `magazine` and `false` otherwise.
+1. Kth Smallest Number (hard)
+
+
+
+### 31. Pattern: Union Find
+
+#### Introduction to Union Find
+The Union Find data structure, also known as Disjoint Set Union (DSU), is used to manage a partition of a set into disjoint (non-overlapping) subsets. It supports two main operations: union (joining two subsets into a single subset) and find (determining which subset a particular element is in).
+
+---
+
+#### [Redundant Connection](https://leetcode.com/problems/redundant-connection/)
+In this problem, a tree with `n` nodes is given. The tree is represented as a set of edges. One additional edge is added to the tree to form a cycle. Return the edge that can be removed so that the resulting graph is a tree of `n` nodes.
+
+---
+
+#### [Number of Islands](https://leetcode.com/problems/number-of-islands/)
+Given a 2D grid map of '1's (land) and '0's (water), count the number of islands. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically.
+
+---
+
+#### [Most Stones Removed with Same Row or Column](https://leetcode.com/problems/most-stones-removed-with-same-row-or-column/)
+On a 2D plane, we place `n` stones at some integer coordinate points. Each coordinate point may have at most one stone. A stone can be removed if it shares either the same row or the same column as another stone that has not been removed. Find the largest possible number of stones that can be removed.
+
+---
+
+#### [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/)
+Given an unsorted array of integers `nums`, return the length of the longest consecutive elements sequence.
+
+---
+
+#### [Last Day Where You Can Still Cross](https://leetcode.com/problems/last-day-where-you-can-still-cross/)
+There is a `1`-based binary matrix where `0` represents land and `1` represents water. You are given an integer `row` and an array `cells` where `cells[i] = [ri, ci]` represents that the cell at `[ri, ci]` will be flooded in the `i-th` day. Return the last day where it is possible to walk from the top to the bottom by only walking on land cells.
+
+---
+
+#### [Regions Cut by Slashes](https://leetcode.com/problems/regions-cut-by-slashes/)
+An `n x n` grid is composed of `1 x 1` squares, and each square consists of a single backslash (`\`), forward slash (`/`), or blank space (` `). Return the number of regions created by slashes.
+
+---
+
+#### [Accounts Merge](https://leetcode.com/problems/accounts-merge/)
+Given a list of accounts where each element `accounts[i]` is a list of strings, where the first element `accounts[i][0]` is a name, and the rest of the elements are emails. Merge the accounts, and return the accounts in the same format.
+
+---
+
+#### [Minimize Malware Spread](https://leetcode.com/problems/minimize-malware-spread/)
+In a network of nodes, each node `i` is directly connected to another node `j` if and only if `graph[i][j] = 1`. Some nodes are initially infected by malware. When a node is infected, it will spread the malware to all the nodes that are directly connected to it. Find the node that if removed, would minimize the spread of the malware.
+
+---
+
+#### [Evaluate Division](https://leetcode.com/problems/evaluate-division/)
+You are given equations in the format `A / B = k`, where `A` and `B` are variables represented as strings, and `k` is a real number (floating-point number). Given some queries, return the answers. If the answer does not exist, return `-1.0`.
+
+### 32. Pattern: Custom Data Structures
+
+#### Introduction to Custom Data Structures
+Custom data structures involve designing and implementing specialized data structures to solve specific problems efficiently. These structures are often used when built-in data structures do not meet the performance requirements.
+
+---
+
+#### [Snapshot Array](https://leetcode.com/problems/snapshot-array/)
+Implement a SnapshotArray that supports taking a snapshot of an array and retrieving the value of the array at a given index for a specific snapshot.
+
+---
+
+#### [Time-Based Key-Value Store](https://leetcode.com/problems/time-based-key-value-store/)
+Design a time-based key-value data structure that can store multiple values for the same key at different time stamps and retrieve the key's value at a specific time.
+
+---
+
+#### [Implement LRU Cache](https://leetcode.com/problems/lru-cache/)
+Design and implement a data structure for Least Recently Used (LRU) cache. It should support the following operations: get and put.
+
+---
+
+#### [Insert Delete GetRandom O(1)](https://leetcode.com/problems/insert-delete-getrandom-o1/)
+Design a data structure that supports all following operations in average O(1) time: insert, delete, and getRandom.
+
+---
+
+#### [Min Stack](https://leetcode.com/problems/min-stack/)
+Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
+
+---
+
+#### [LFU Cache](https://leetcode.com/problems/lfu-cache/)
+Design and implement a data structure for Least Frequently Used (LFU) cache. It should support the following operations: get and put.
+
+### 33. Pattern: Bitwise Manipulation
+
+#### Introduction to Bitwise Manipulation
+Bitwise manipulation involves using bitwise operators to perform operations directly on the binary representations of integers. These operations are often more efficient than their arithmetic or logical counterparts.
+
+---
+
+#### [Find the Difference](https://leetcode.com/problems/find-the-difference/)
+Given two strings `s` and `t` which consist of only lowercase letters. String `t` is generated by randomly shuffling string `s` and then adding one more letter at a random position. Find the letter that was added in `t`.
+
+---
+
+#### [Complement of Base 10 Number](https://leetcode.com/problems/complement-of-base-10-integer/)
+Every non-negative integer `N` has a binary representation. The complement of this binary representation is another binary number where each bit is flipped (0 to 1 and 1 to 0). Return the complement of `N`.
+
+---
+
+#### [Flipping an Image](https://leetcode.com/problems/flipping-an-image/)
+Given a binary matrix, flip the image horizontally, then invert it.
+
+---
+
+#### [Single Number](https://leetcode.com/problems/single-number/)
+Given a non-empty array of integers `nums`, every element appears twice except for one. Find that single one.
+
+---
+
+#### [Two Single Numbers](https://leetcode.com/problems/single-number-iii/)
+Given an array of numbers `nums`, in which exactly two elements appear only once and all the other elements appear exactly twice. Find the two elements that appear only once.
+
+---
+
+#### [Encode and Decode Strings](https://leetcode.com/problems/encode-and-decode-strings/)
+Design an algorithm to encode a list of strings to a string. The encoded string is then sent over the network and is decoded back to the original list of strings.
+
+---
+
+#### [Reverse Bits](https://leetcode.com/problems/reverse-bits/)
+Reverse the bits of a given 32 bits unsigned integer.
+
+
+### 34. Dynamic Programming
 Great articles to learn the general dynamic programming knowledge & patterns
 https://leetcode.com/discuss/general-discussion/458695/Dynamic-Programming-Patterns
 https://leetcode.com/discuss/general-discussion/662866/DP-for-Beginners-Problems-or-Patterns-or-Sample-Solutions
