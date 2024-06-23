@@ -5,8 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b2deea0c-82ba-47a0-b1b8-15e444422b7e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Grokking_Patterns.md" beforeDir="false" afterPath="$PROJECT_DIR$/Grokking_Patterns.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InterviewPrep.iml" beforeDir="false" afterPath="$PROJECT_DIR$/InterviewPrep.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/weblogic.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/practice/StackOverflowErrorExample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/practice/UniqeString.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/practice/array/FindKthLargest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/practice/array/FindKthLargest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/practice/ds/linkedList/LinkedListDuplicate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/practice/ds/linkedList/LinkedListDuplicate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/practice/ds/linkedList/Main1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/practice/ds/map/CustomerHashMap.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +42,7 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Application.AnagramFinder.executor": "Run",
+    "Application.StackOverflowErrorExample.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
@@ -43,10 +53,13 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.StackOverflowErrorExample">
     <configuration name="AnagramFinder" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.practice.array.AnagramFinder" />
       <module name="InterviewPrep" />
@@ -60,8 +73,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="StackOverflowErrorExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.practice.StackOverflowErrorExample" />
+      <module name="InterviewPrep" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.practice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.StackOverflowErrorExample" />
         <item itemvalue="Application.AnagramFinder" />
       </list>
     </recent_temporary>
@@ -82,7 +109,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1719129853778</updated>
-      <workItem from="1719129855932" duration="2708000" />
+      <workItem from="1719129855932" duration="4284000" />
     </task>
     <servers />
   </component>

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="javax.jms">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/javax.jms.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/joda-time-2.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/json-20240303.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lombok-1.18.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/ojdbc8.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

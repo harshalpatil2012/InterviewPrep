@@ -83,5 +83,6 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="javax.jms" level="project" />
   </component>
 </module>

@@ -34,7 +34,7 @@ public class FindKthLargest {
 		kthSmallest = kthSmallestUsingBinary(arr, k); // returns 4
 		System.out.println("K'th smallest element in the array is " + kthSmallest);
 
-		Map<String, Integer> scores = new HashMap()<>();
+		Map<String, Integer> scores = new HashMap<>();
         scores.put("Alice", 95);
         scores.put("Bob", 80);
         scores.put("Charlie", 70);
