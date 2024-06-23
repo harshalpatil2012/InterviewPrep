@@ -1,0 +1,21 @@
+@startuml
+package "Consumer Service" {
+    [Consumer Service]
+}
+
+package "Detail Service" {
+    [Detail Service]
+}
+
+[Consumer Service] --> [Detail Service] : GET /opsdata
+
+note right of [Detail Service]
+    Example:
+    GET /opsdata
+    Response:
+    {
+        "id": 1,
+        "name": "SomeData"
+    }
+end note
+@enduml

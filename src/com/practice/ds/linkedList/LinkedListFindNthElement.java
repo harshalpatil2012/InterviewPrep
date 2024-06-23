@@ -3,7 +3,7 @@ package com.practice.ds.linkedList;
 public class LinkedListFindNthElement {
 
     public static void main(String args[]) {
-        SinglyLinkedList list = new SinglyLinkedList();
+        SinglyLinkedList1 list = new SinglyLinkedList1();
         list.append("1");
         list.append("2");
         list.append("3");
@@ -26,7 +26,7 @@ public class LinkedListFindNthElement {
  * @author Javin
  *
  */
-class SinglyLinkedList {
+class SinglyLinkedList1 {
     static class Node {
         private Node next;
         private String data;
