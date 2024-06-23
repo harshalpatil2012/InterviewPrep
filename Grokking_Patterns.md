@@ -16,36 +16,38 @@
 11. Problem Challenge 2: Comparing Strings containing Backspaces (medium) [Leetcode](https://leetcode.com/problems/backspace-string-compare/)
 12. Problem Challenge 3: Minimum Window Sort (medium) [Leetcode](https://leetcode.com/problems/shortest-unsorted-continuous-subarray/) [Ideserve](https://www.ideserve.co.in/learn/minimum-length-subarray-sorting-which-results-in-sorted-array)
 
-Sorted Arrays/Lists (Opposite Direction Pointers):
+**More Problems:**
 
-167. Two Sum II - Input Array Is Sorted
-344. Reverse String
-977. Squares of a Sorted Array
-15. 3Sum
-16. 3Sum Closest
-26. Remove Duplicates from Sorted Array
-80. Remove Duplicates from Sorted Array II
-27. Remove Element
-Linked Lists (Fast & Slow Pointers):
+**Sorted Arrays/Lists (Opposite Direction Pointers):**
+- [167. Two Sum II - Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)
+- [344. Reverse String](https://leetcode.com/problems/reverse-string/)
+- [977. Squares of a Sorted Array](https://leetcode.com/problems/squares-of-a-sorted-array/)
+- [15. 3Sum](https://leetcode.com/problems/3sum/)
+- [16. 3Sum Closest](https://leetcode.com/problems/3sum-closest/)
+- [26. Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)
+- [80. Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/)
+- [27. Remove Element](https://leetcode.com/problems/remove-element/)
 
-141. Linked List Cycle
-142. Linked List Cycle II
-876. Middle of the Linked List
-Subarrays/Substrings (Sliding Window):
+**Linked Lists (Fast & Slow Pointers):**
+- [141. Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)
+- [142. Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/)
+- [876. Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/)
 
-209. Minimum Size Subarray Sum
-713. Subarray Product Less Than K
-904. Fruit Into Baskets
-424. Longest Repeating Character Replacement
-Array Manipulation (In-Place Modification):
+**Subarrays/Substrings (Sliding Window):**
+- [209. Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/)
+- [713. Subarray Product Less Than K](https://leetcode.com/problems/subarray-product-less-than-k/)
+- [904. Fruit Into Baskets](https://leetcode.com/problems/fruit-into-baskets/)
+- [424. Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/)
 
-287. Find the Duplicate Number
-Additional Challenges:
+**Array Manipulation (In-Place Modification):**
+- [287. Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/)
 
-11. Container With Most Water
-454. 4Sum II
-125. Valid Palindrome
-75. Sort Colors - Similar to the Dutch National Flag problem.
+**Additional Challenges:**
+- [11. Container With Most Water](https://leetcode.com/problems/container-with-most-water/)
+- [454. 4Sum II](https://leetcode.com/problems/4sum-ii/)
+- [125. Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)
+- [75. Sort Colors](https://leetcode.com/problems/sort-colors/) - Similar to the Dutch National Flag problem.
+
 
 ### 2. Pattern: Fast & Slow pointers
 
