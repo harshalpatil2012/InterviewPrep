@@ -16,6 +16,37 @@
 11. Problem Challenge 2: Comparing Strings containing Backspaces (medium) [Leetcode](https://leetcode.com/problems/backspace-string-compare/)
 12. Problem Challenge 3: Minimum Window Sort (medium) [Leetcode](https://leetcode.com/problems/shortest-unsorted-continuous-subarray/) [Ideserve](https://www.ideserve.co.in/learn/minimum-length-subarray-sorting-which-results-in-sorted-array)
 
+Sorted Arrays/Lists (Opposite Direction Pointers):
+
+167. Two Sum II - Input Array Is Sorted
+344. Reverse String
+977. Squares of a Sorted Array
+15. 3Sum
+16. 3Sum Closest
+26. Remove Duplicates from Sorted Array
+80. Remove Duplicates from Sorted Array II
+27. Remove Element
+Linked Lists (Fast & Slow Pointers):
+
+141. Linked List Cycle
+142. Linked List Cycle II
+876. Middle of the Linked List
+Subarrays/Substrings (Sliding Window):
+
+209. Minimum Size Subarray Sum
+713. Subarray Product Less Than K
+904. Fruit Into Baskets
+424. Longest Repeating Character Replacement
+Array Manipulation (In-Place Modification):
+
+287. Find the Duplicate Number
+Additional Challenges:
+
+11. Container With Most Water
+454. 4Sum II
+125. Valid Palindrome
+75. Sort Colors - Similar to the Dutch National Flag problem.
+
 ### 2. Pattern: Fast & Slow pointers
 
 1. Introduction [emre.me](https://emre.me/coding-patterns/fast-slow-pointers/)
