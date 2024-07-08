@@ -1,6 +1,7 @@
 package com.practice.leetcode.fastslow.pointers;
 
 /**
+ * Leetcode : 142. Linked List Cycle II
  * Start of LinkedList Cycle (medium)
  * https://leetcode.com/problems/linked-list-cycle-ii/
  * Given the head of a Singly LinkedList that contains a cycle, write a function to find the
@@ -43,27 +44,27 @@ public class LinkedListCycleStart {
         }
     }
 
-    private ListNode detectCycle(ListNode head) {
+    public ListNode detectCycle(ListNode head) {
+        if (head == null || head.next == null) {
+            return null; // No cycle if list is empty or has only one node
+        }
 
-        ListNode slow = head;
-        ListNode fast = head;
+        ListNode slow = head, fast = head; // Initialize pointers
+
+        // Cycle detection
         while (fast != null && fast.next != null) {
-
-            fast = fast.next.next;
-            slow = slow.next;
-
-            if (slow == fast) {
-
-                ListNode ptr1 = head;
-                ListNode ptr2 = slow;
-                while (ptr1 != ptr2) {
-                    ptr1 = ptr1.next;
-                    ptr2 = ptr2.next;
+            slow = slow.next;             // Slow moves one step
+            fast = fast.next.next;        // Fast moves two steps
+            if (slow == fast) {           // Cycle detected!
+                slow = head;             // Reset slow to the head
+                while (slow != fast) {   // Move both pointers at same speed
+                    slow = slow.next;
+                    fast = fast.next;
                 }
-                return ptr1;
+                return slow;              // Meeting point is the cycle start
             }
         }
 
-        return null; // no cycle
+        return null;  // No cycle found
     }
 }

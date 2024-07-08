@@ -6,25 +6,17 @@ import java.util.Map;
 
 /**
  * Leetcode 3. Longest Substring Without Repeating Characters
- * Hint
- * Given a string s, find the length of the longest
- * substring
+ * Given a string s, find the length of the longest substring
  * without repeating characters.
- * <p>
- * <p>
- * <p>
  * Example 1:
- * <p>
  * Input: s = "abcabcbb"
  * Output: 3
  * Explanation: The answer is "abc", with the length of 3.
  * Example 2:
- * <p>
  * Input: s = "bbbbb"
  * Output: 1
  * Explanation: The answer is "b", with the length of 1.
  * Example 3:
- * <p>
  * Input: s = "pwwkew"
  * Output: 3
  * Explanation: The answer is "wke", with the length of 3.
@@ -49,14 +41,11 @@ public class LongestSubstringWithoutRepeatingCharacters {
         Map<Character, Integer> indexMap = new HashMap<>();
 
         for (int i = 0; i < str1.length(); i++) {
-
             char ch = str1.charAt(i);
             if (indexMap.containsKey(ch)) {
-
                 start = Math.max(start, indexMap.get(ch) + 1);
             }
             indexMap.put(ch, i);
-
             maxLength = Math.max(maxLength, i - start + 1);
         }
         return maxLength;

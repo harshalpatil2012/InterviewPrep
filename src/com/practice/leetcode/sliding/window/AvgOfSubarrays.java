@@ -11,7 +11,7 @@ public class AvgOfSubarrays {
 
         List<Integer> result = avgOfSubarrays(arr, 5);
         result.forEach(System.out::println);
-
+        // O/P: 3 4  5  6  7  8
     }
 
     private static List<Integer> avgOfSubarrays(int[] arr, int k) {

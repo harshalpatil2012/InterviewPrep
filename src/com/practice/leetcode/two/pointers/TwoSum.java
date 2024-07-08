@@ -17,23 +17,22 @@ public class TwoSum {
         System.out.println("Aray indices with target sum:: " + Arrays.toString(findSum(arr, target)));
     }
 
-    private static int[] findSum(int[] arr, int target) {
+    public static int[] findSum(int[] numbers, int target) {
+        int left = 0;
+        int right = numbers.length - 1;
 
-        int start = 0;
-        int end = arr.length - 1;
-        while (start < end) {
+        while (left < right) {
+            int sum = numbers[left] + numbers[right];
 
-            int sum = arr[start] + arr[end];
             if (sum == target) {
-                return new int[]{start, end};
-            }
-
-            if (sum < target) {
-                start++;
+                return new int[]{left, right};
+            } else if (sum < target) {
+                left++;
             } else {
-                end--;
+                right--;
             }
         }
-        return new int[]{};
+
+        return new int[]{-1, -1}; // Return -1, -1 if no pair is found
     }
 }

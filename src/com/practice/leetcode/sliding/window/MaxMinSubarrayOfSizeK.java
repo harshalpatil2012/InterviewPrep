@@ -2,6 +2,13 @@ package com.practice.leetcode.sliding.window;
 
 import java.util.List;
 
+/**
+ * 209. Minimum Size Subarray Sum
+ * https://leetcode.com/problems/minimum-size-subarray-sum/description/
+ * Given an array of positive integers nums and a positive integer target, return the minimal length of a
+ * subarray
+ * whose sum is greater than or equal to target. If there is no such subarray, return 0 instead.
+ */
 public class MaxMinSubarrayOfSizeK {
 
     public static void main(String[] args) {
@@ -56,20 +63,18 @@ public class MaxMinSubarrayOfSizeK {
 
     public static int minSubArrayLen(int target, int[] nums) {
         int n = nums.length;
-        int minLength = Integer.MAX_VALUE;
-        int sum = 0;
-        int left = 0;
+        int minLen = Integer.MAX_VALUE;
+        int left = 0, currentSum = 0;
 
         for (int right = 0; right < n; right++) {
-            sum += nums[right];
+            currentSum += nums[right];
 
-            while (sum >= target) {
-                minLength = Math.max(minLength, right - left + 1);
-                sum -= nums[left];
-                left++;
+            while (currentSum >= target) {
+                minLen = Math.min(minLen, right - left + 1);
+                currentSum -= nums[left++];
             }
         }
 
-        return (minLength == Integer.MAX_VALUE) ? 0 : minLength;
+        return minLen == Integer.MAX_VALUE ? 0 : minLen;
     }
 }

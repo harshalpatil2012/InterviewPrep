@@ -15,10 +15,12 @@ public class LongestSubstringWithKDistinctCharacters {
     public static void main(String[] args) {
 
         String input1 = "abcabcbb";
-        System.out.println("longestSubstring with 4 distinct chars ::" + longestSubstring(input1, 4));
+        System.out.println("longestSubstring with 4 distinct chars ::" + longestSubstring(input1, 4)); // 8
 
         String input2 = "araaci";
-        System.out.println("longestSubstring with 2 distinct chars ::" + longestSubstring(input2, 2));
+        System.out.println("longestSubstring with 2 distinct chars ::" + longestSubstring(input2, 2)); // 4
+        System.out.println(lengthOfLongestSubstringTwoDistinct("eceba")); // Output: 3 ("ece")
+        System.out.println(lengthOfLongestSubstringTwoDistinct("ccaabbb")); // Output: 5 ("aabbb")
     }
 
     public static int longestSubstring(String inputStr, int k) {
@@ -45,4 +47,40 @@ public class LongestSubstringWithKDistinctCharacters {
         }
         return maxLen;
     }
+
+
+
+    public static int lengthOfLongestSubstringTwoDistinct(String s) {
+        if (s == null || s.length() == 0) {
+            return 0;
+        }
+
+        // Initialize variables
+        Map<Character, Integer> map = new HashMap<>(); // To store the count of each character in the current window
+        int maxLength = 0; // To store the maximum length of substring found
+        int left = 0; // Left pointer of the sliding window
+
+        // Traverse through the string with the right pointer
+        for (int right = 0; right < s.length(); right++) {
+            char rightChar = s.charAt(right);
+            map.put(rightChar, map.getOrDefault(rightChar, 0) + 1);
+
+            // If the window contains more than two distinct characters, shrink the window from the left
+            while (map.size() > 2) {
+                char leftChar = s.charAt(left);
+                map.put(leftChar, map.get(leftChar) - 1);
+                if (map.get(leftChar) == 0) {
+                    map.remove(leftChar);
+                }
+                left++;
+            }
+
+            // Update the maximum length of substring
+            maxLength = Math.max(maxLength, right - left + 1);
+        }
+
+        return maxLength;
+    }
+
+
 }

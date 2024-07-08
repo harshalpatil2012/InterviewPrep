@@ -5,9 +5,43 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b2deea0c-82ba-47a0-b1b8-15e444422b7e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/practice/leetcode/permutations/DifferentWaysToAddParentheses.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/practice/leetcode/CountSpecialQuadruplets.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/practice/leetcode/binary/search/BinarySearch.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/practice/leetcode/bitwise/FindSingleNumber.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/practice/leetcode/bst/UniqueBinarySearchTrees.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/practice/leetcode/bst/UniqueBinarySearchTreesIIUsingDP.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/practice/leetcode/bst/UniqueBinarySearchTreesIIUsingMemo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/practice/leetcode/dp/ConcatenatedWords.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/practice/leetcode/sliding/window/FindAllAnagrams.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/practice/leetcode/sliding/window/KEmptySlots.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/practice/leetcode/sliding/window/KEmptySlotsSlidingWindow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/practice/leetcode/sliding/window/MaxConsecutiveOnesIII.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/practice/leetcode/sliding/window/MinimumWindowSubstring.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/practice/leetcode/sliding/window/PermutationInString.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/practice/leetcode/sliding/window/TestApp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/practice/leetcode/two/pointers/BackspaceStringCompare.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/practice/leetcode/two/pointers/FourSum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/practice/leetcode/two/pointers/FourSumII.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/practice/leetcode/two/pointers/SortColors.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/practice/leetcode/two/pointers/SubarrayProductLessThanK.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Grokking_Patterns.md" beforeDir="false" afterPath="$PROJECT_DIR$/Grokking_Patterns.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/practice/leetcode/fastslow/pointers/HappyNumber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/practice/leetcode/fastslow/pointers/HappyNumber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/practice/leetcode/fastslow/pointers/LinkedListCycleStart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/practice/leetcode/fastslow/pointers/LinkedListCycleStart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/practice/leetcode/permutations/DifferentWaysToAddParentheses.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/practice/leetcode/permutations/DifferentWaysToAddParentheses.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/practice/leetcode/sliding/window/AvgOfSubarrays.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/practice/leetcode/sliding/window/AvgOfSubarrays.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/practice/leetcode/sliding/window/FruitsIntoBaskets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/practice/leetcode/sliding/window/FruitsIntoBaskets.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/practice/leetcode/sliding/window/LazyChefII.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/practice/leetcode/sliding/window/LazyChefII.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/practice/leetcode/sliding/window/LongestRepeatingCharacterReplacement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/practice/leetcode/sliding/window/LongestRepeatingCharacterReplacement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/practice/leetcode/sliding/window/LongestSubstringWithKDistinctCharacters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/practice/leetcode/sliding/window/LongestSubstringWithKDistinctCharacters.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/practice/leetcode/sliding/window/LongestSubstringWithoutRepeatingCharacters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/practice/leetcode/sliding/window/LongestSubstringWithoutRepeatingCharacters.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/practice/leetcode/sliding/window/MaxMinSubarrayOfSizeK.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/practice/leetcode/sliding/window/MaxMinSubarrayOfSizeK.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/practice/leetcode/subset/GeneralizedAbbreviation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/practice/leetcode/subset/GeneralizedAbbreviation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/practice/leetcode/two/pointers/RemoveDuplicatesFromSortedArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/practice/leetcode/two/pointers/RemoveDuplicatesFromSortedArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/practice/leetcode/two/pointers/RemoveElementInPlace.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/practice/leetcode/two/pointers/RemoveElementInPlace.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/practice/leetcode/two/pointers/SquaresOfSortedArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/practice/leetcode/two/pointers/SquaresOfSortedArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/practice/leetcode/two/pointers/ThreeSumClosest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/practice/leetcode/two/pointers/ThreeSumClosest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/practice/leetcode/two/pointers/TripletSumToZero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/practice/leetcode/two/pointers/TripletSumToZero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/practice/leetcode/two/pointers/TwoSum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/practice/leetcode/two/pointers/TwoSum.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,10 +58,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 1
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2iGvhl1SdWsNK3kHObPTPuOxVWF" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -41,12 +75,33 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Application.AnagramFinder.executor": "Run",
+    "Application.AvgOfSubarrays.executor": "Run",
+    "Application.BackspaceStringCompare.executor": "Run",
+    "Application.BinarySearch.executor": "Run",
+    "Application.ConcatenatedWords.executor": "Run",
+    "Application.DifferentWaysToAddParentheses.executor": "Run",
+    "Application.FindSingleNumber.executor": "Run",
+    "Application.FourSum.executor": "Run",
+    "Application.FourSumII.executor": "Run",
+    "Application.GeneralizedAbbreviation.executor": "Run",
+    "Application.KEmptySlotsSlidingWindow.executor": "Run",
+    "Application.LongestSubstringWithKDistinctCharacters.executor": "Run",
+    "Application.MaxConsecutiveOnesIII.executor": "Run",
+    "Application.MaxMinSubarrayOfSizeK.executor": "Run",
+    "Application.MinimumWindowSubstring.executor": "Run",
+    "Application.PermutationInString.executor": "Run",
+    "Application.SortColors.executor": "Run",
     "Application.StackOverflowErrorExample.executor": "Run",
+    "Application.SubarrayProductLessThanK.executor": "Run",
+    "Application.TripletSumToZero.executor": "Run",
+    "Application.UniqueBinarySearchTrees.executor": "Run",
+    "Application.UniqueBinarySearchTreesII.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/GitHubProjects/DevUtils",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -58,13 +113,13 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.StackOverflowErrorExample">
-    <configuration name="AnagramFinder" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.practice.array.AnagramFinder" />
+  <component name="RunManager" selected="Application.LongestSubstringWithKDistinctCharacters">
+    <configuration name="BackspaceStringCompare" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.practice.leetcode.two.pointers.BackspaceStringCompare" />
       <module name="InterviewPrep" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.practice.array.*" />
+          <option name="PATTERN" value="com.practice.leetcode.two.pointers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -72,12 +127,51 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StackOverflowErrorExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.practice.StackOverflowErrorExample" />
+    <configuration name="FourSum" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.practice.leetcode.two.pointers.FourSum" />
       <module name="InterviewPrep" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.practice.*" />
+          <option name="PATTERN" value="com.practice.leetcode.two.pointers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FourSumII" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.practice.leetcode.two.pointers.FourSumII" />
+      <module name="InterviewPrep" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.practice.leetcode.two.pointers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LongestSubstringWithKDistinctCharacters" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.practice.leetcode.sliding.window.LongestSubstringWithKDistinctCharacters" />
+      <module name="InterviewPrep" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.practice.leetcode.sliding.window.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SortColors" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.practice.leetcode.two.pointers.SortColors" />
+      <module name="InterviewPrep" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.practice.leetcode.two.pointers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -87,8 +181,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.StackOverflowErrorExample" />
-        <item itemvalue="Application.AnagramFinder" />
+        <item itemvalue="Application.LongestSubstringWithKDistinctCharacters" />
+        <item itemvalue="Application.BackspaceStringCompare" />
+        <item itemvalue="Application.FourSumII" />
+        <item itemvalue="Application.FourSum" />
+        <item itemvalue="Application.SortColors" />
       </list>
     </recent_temporary>
   </component>
@@ -108,7 +205,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1719129853778</updated>
-      <workItem from="1719129855932" duration="9272000" />
+      <workItem from="1719129855932" duration="86642000" />
+      <workItem from="1720418229563" duration="419000" />
     </task>
     <servers />
   </component>

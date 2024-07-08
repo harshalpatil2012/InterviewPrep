@@ -6,29 +6,24 @@ import java.util.Scanner;
 
 /**
  * LAZY CHEF II
- * <p>
  * Description
  * Chef enters the kitchen which consists of N linear blocks where each block contains only 1 ingredient from a list of ingredients.
- * <p>
- * Chef has to prepare the dish consisting of 2 ingredients 11 and 12. To prepare the dish D, the first task for chef is to group blocks of all 11 ingredients and 12 ingredients together and also, group of 11 and 12 ingredients should be adjacent to each other. Chef needs to achieve this task by only swapping adjacent blocks with one another. One swap is equivalent to one valid move. Since the chef is lazy, can you help him determine the minimum number of moves in which he can complete this task.
- * <p>
+ * Chef has to prepare the dish consisting of 2 ingredients 11 and 12. To prepare the dish D, the first task for chef is
+ * to group blocks of all 11 ingredients and 12 ingredients together and also, group of 11 and 12 ingredients should be adjacent
+ * to each other. Chef needs to achieve this task by only swapping adjacent blocks with one another.
+ * One swap is equivalent to one valid move. Since the chef is lazy, can you help him determine the minimum number of moves in which he can complete this task.
  * Constraints
  * 1<=N<=100,000
  * <p>
  * There is at-least one occurrence of both 11 and 12 on the shelf.
- * <p>
  * One swap is equivalent to one valid move.
- * <p>
  * Output Format Print the minimum number of moves in which chef can complete this task.
- * <p>
  * Input Format
  * The first line contains N, denoting the number of blocks in the kitchen.
  * The second line contains N space-separated characters, where the ith character represents ingredient on ith block.
  * The third line contains 2 space-separated characters 11 and 12, denoting ingredients required to prepare dish D.
- * <p>
  * Output Format
  * Print the minimum number of moves in which chef can complete this task.
- * <p>
  * Sample Input
  * 7
  * H D H S A H S

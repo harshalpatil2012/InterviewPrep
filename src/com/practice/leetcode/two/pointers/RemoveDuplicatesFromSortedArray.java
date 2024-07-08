@@ -1,9 +1,11 @@
 package com.practice.leetcode.two.pointers;
 
 /**
- * Remove Duplicates (easy)https://leetcode.com/problems/remove-duplicates-from-sorted-array/Given an
+ * Remove Duplicates (easy)
+ * 26. Remove Duplicates from Sorted Array
+ * https://leetcode.com/problems/remove-duplicates-from-sorted-array/Given an
  * array of sorted numbers, remove all duplicates from it. You should not use anyextra space; after
- * removing the duplicates in-place return the length of the subarray that hasno duplicate in it.
+ * removing the duplicates in-place return the length of the subarray that has no duplicate in it.
  */
 public class RemoveDuplicatesFromSortedArray {
 
