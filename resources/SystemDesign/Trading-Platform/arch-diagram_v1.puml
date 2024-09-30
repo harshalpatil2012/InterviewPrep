@@ -1,0 +1,213 @@
+@startuml
+
+package "Client Applications" {
+    component WebApp
+    component MobileApp
+}
+
+package "AWS Cloud" {
+
+    package "Global Network" {
+        component Route53
+        component CloudFront
+        component GlobalAccelerator
+        component WAF
+        component APIGateway
+    }
+
+    package "Region 1" {
+        package "Application Layer (VPC 1)" {
+            component NLB [
+                Network Load Balancer
+            ]
+            component ALB [
+                Application Load Balancer
+            ]
+            component UserService
+            component PortfolioService
+            component OrderService
+            component MarketDataService
+            component TransactionService
+            component NotificationService
+        }
+
+        package "Data Layer" {
+            component RDS [
+                PostgreSQL (Aurora) - Multi-AZ
+            ]
+            component DynamoDB
+            component DAX [
+                DynamoDB Accelerator
+            ]
+            component Timestream
+            component ElastiCache [
+                Redis (Cluster)
+            ]
+        }
+
+        package "Queueing & Streaming" {
+            component SQS [
+                Amazon SQS
+            ]
+            component Kinesis [
+                Amazon Kinesis Data Streams
+            ]
+        }
+
+        package "Compute" {
+            component ASG [
+                Auto Scaling Group
+            ]
+            component EC2 [
+                EC2 Instances
+            ]
+        }
+    }
+
+    package "Region 2" {
+        package "Application Layer (VPC 2)" {
+            component NLB2 [
+                Network Load Balancer
+            ]
+            component ALB2 [
+                Application Load Balancer
+            ]
+            component UserService2
+            component PortfolioService2
+            component OrderService2
+            component MarketDataService2
+            component TransactionService2
+            component NotificationService2
+        }
+
+        package "Data Layer" {
+            component RDS2 [
+                PostgreSQL (Aurora) - Multi-AZ
+            ]
+            component DynamoDB2
+            component DAX2 [
+                DynamoDB Accelerator
+            ]
+            component Timestream2
+            component ElastiCache2 [
+                Redis (Cluster)
+            ]
+        }
+
+        package "Queueing & Streaming" {
+            component SQS2 [
+                Amazon SQS
+            ]
+            component Kinesis2 [
+                Amazon Kinesis Data Streams
+            ]
+        }
+
+        package "Compute" {
+            component ASG2 [
+                Auto Scaling Group
+            ]
+            component EC2_2 [
+                EC2 Instances
+            ]
+        }
+    }
+
+    package "Security & Compliance" {
+        component Shield
+        component KMS
+        component CloudTrail
+        component Config
+    }
+
+    package "Monitoring & Logging" {
+        component CloudWatch
+        component XRay
+    }
+}
+
+WebApp --> Route53
+MobileApp --> Route53
+Route53 --> CloudFront
+CloudFront --> GlobalAccelerator
+GlobalAccelerator --> WAF
+WAF --> NLB
+WAF --> NLB2
+NLB --> APIGateway
+NLB2 --> APIGateway
+
+APIGateway --> ALB
+APIGateway --> ALB2
+
+ALB --> UserService : User Requests/Responses
+ALB --> PortfolioService : Portfolio Requests/Responses
+ALB --> OrderService : Order Requests/Responses
+ALB --> MarketDataService : Market Data Requests/Responses
+ALB --> TransactionService : Transaction Requests/Responses
+ALB --> NotificationService : Notification Requests
+
+UserService --> RDS : User Data
+PortfolioService --> RDS : Portfolio Data
+OrderService --> RDS : Order Data
+MarketDataService --> DynamoDB : Real-time Market Data
+MarketDataService --> Timestream : Historical Market Data
+MarketDataService --> ElastiCache : Market Data Cache
+MarketDataService --> DAX
+TransactionService --> RDS : Transaction Data
+NotificationService --> AmazonSNS
+
+ALB2 --> UserService2 : User Requests/Responses
+ALB2 --> PortfolioService2 : Portfolio Requests/Responses
+ALB2 --> OrderService2 : Order Requests/Responses
+ALB2 --> MarketDataService2 : Market Data Requests/Responses
+ALB2 --> TransactionService2 : Transaction Requests/Responses
+ALB2 --> NotificationService2 : Notification Requests
+
+UserService2 --> RDS2 : User Data
+PortfolioService2 --> RDS2 : Portfolio Data
+OrderService2 --> RDS2 : Order Data
+MarketDataService2 --> DynamoDB2 : Real-time Market Data
+MarketDataService2 --> Timestream2 : Historical Market Data
+MarketDataService2 --> ElastiCache2 : Market Data Cache
+MarketDataService2 --> DAX2
+TransactionService2 --> RDS2 : Transaction Data
+NotificationService2 --> AmazonSNS
+
+UserService --> ElastiCache : User Cache
+PortfolioService --> ElastiCache : Portfolio Cache
+OrderService --> ElastiCache : Order Cache
+UserService2 --> ElastiCache2 : User Cache
+PortfolioService2 --> ElastiCache2 : Portfolio Cache
+OrderService2 --> ElastiCache2 : Order Cache
+
+OrderService --> SQS : Order Queue
+TransactionService --> SQS : Transaction Queue
+MarketDataService --> Kinesis : Market Data Stream
+
+OrderService2 --> SQS2 : Order Queue
+TransactionService2 --> SQS2 : Transaction Queue
+MarketDataService2 --> Kinesis2 : Market Data Stream
+
+
+ALB --> ASG
+ASG --> EC2
+ALB2 --> ASG2
+ASG2 --> EC2_2
+
+ Shield --> APIGateway
+RDS --> KMS
+DynamoDB --> KMS
+Timestream --> KMS
+RDS2 --> KMS
+DynamoDB2 --> KMS
+Timestream2 --> KMS
+ApplicationLayer --> CloudTrail
+DataLayer --> CloudTrail
+ApplicationLayer --> Config
+DataLayer --> Config
+
+ ApplicationLayer --> CloudWatch
+DataLayer --> CloudWatch
+ApplicationLayer --> XRay
+
+@enduml

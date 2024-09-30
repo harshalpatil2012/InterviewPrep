@@ -1,0 +1,156 @@
+@startuml
+!define RECTANGLE class
+!define CLOUD package
+
+cloud "Web Application" as webApp
+cloud "Mobile Application" as mobileApp
+cloud "Route 53" as route53
+cloud "CloudFront" as cloudFront
+cloud "Global Accelerator" as globalAccelerator
+
+rectangle "Web Application Firewall (WAF)" as waf
+rectangle "Network Load Balancer (NLB)" as nlb
+rectangle "Application Load Balancer (ALB)" as alb
+rectangle "API Gateway" as apiGateway
+
+package "User Service" {
+    rectangle "Internal Load Balancer" as ilbUser
+    rectangle "Auto Scaling Group" as asgUser
+    rectangle "EC2 Instance (AZ1)" as ec2UserServiceAZ1
+    rectangle "EC2 Instance (AZ2)" as ec2UserServiceAZ2
+    rectangle "RDS - User Database (Multi-AZ)" as rdsUser
+    rectangle "ElastiCache (Redis) - User Cache" as elasticacheUser
+}
+
+package "Order Management Service" {
+    rectangle "Internal Load Balancer" as ilbOrder
+    rectangle "Auto Scaling Group" as asgOrder
+    rectangle "EC2 Instance (AZ1)" as ec2OrderManagementAZ1
+    rectangle "EC2 Instance (AZ2)" as ec2OrderManagementAZ2
+    rectangle "RDS - Order Management DB (Multi-AZ)" as rdsOrderManagement
+    rectangle "ElastiCache (Redis) - Order Cache" as elasticacheOrder
+}
+
+package "Market Data Service" {
+    rectangle "Internal Load Balancer" as ilbMarketData
+    rectangle "Auto Scaling Group" as asgMarketData
+    rectangle "EC2 Instance (AZ1)" as ec2MarketDataAZ1
+    rectangle "EC2 Instance (AZ2)" as ec2MarketDataAZ2
+    rectangle "DynamoDB - Market Data" as dynamoMarketData
+    rectangle "DAX - DynamoDB Accelerator" as dax
+    rectangle "ElastiCache (Redis) - Market Data Cache" as elasticacheMarketData
+}
+
+package "Storage" {
+    rectangle "S3 - Static Assets" as s3
+}
+
+package "Security" {
+    rectangle "Key Management Service (KMS)" as kms
+    rectangle "Secrets Manager" as secretsManager
+}
+
+package "Compliance and Governance" {
+    rectangle "AWS Macie" as macie
+    rectangle "AWS Config" as config
+}
+
+package "Logging & Monitoring" {
+    rectangle "Amazon CloudWatch Logs" as cloudwatchlogs
+    rectangle "Amazon Elasticsearch Service" as elasticsearch
+    rectangle "Kibana" as kibana
+    rectangle "CloudWatch" as cloudWatch
+}
+
+package "Event Streaming" {
+    rectangle "Kafka - Event Streaming" as kafka
+    rectangle "Kinesis Data Firehose" as kinesisFirehose
+}
+
+rectangle "Global Database\n(Replication Enabled)" as globalDB
+rectangle "Service Mesh (AWS App Mesh)" as serviceMesh
+
+' Main Flow
+webApp --> route53 : DNS Lookup
+mobileApp --> route53 : DNS Lookup
+route53 --> cloudFront : Directs Traffic
+cloudFront --> globalAccelerator : Improved Global Routing
+globalAccelerator --> waf : Forward Requests
+waf --> nlb : Forward Requests
+nlb --> apiGateway : Forward Requests
+apiGateway --> alb : Route to ALB
+
+' Load Balancers and Services
+alb --> ilbUser : Route to User Service
+alb --> ilbOrder : Route to Order Management
+alb --> ilbMarketData : Route to Market Data Service
+
+' User Service Flow
+ilbUser --> asgUser : Distribute Traffic
+asgUser --> ec2UserServiceAZ1 : Scale Up
+asgUser --> ec2UserServiceAZ2 : Scale Up
+
+' Order Management Flow
+ilbOrder --> asgOrder : Distribute Traffic
+asgOrder --> ec2OrderManagementAZ1 : Scale Up
+asgOrder --> ec2OrderManagementAZ2 : Scale Up
+
+' Market Data Service Flow
+ilbMarketData --> asgMarketData : Distribute Traffic
+asgMarketData --> ec2MarketDataAZ1 : Scale Up
+asgMarketData --> ec2MarketDataAZ2 : Scale Up
+
+' Inter-Service Communication (Bi-Directional)
+ec2UserServiceAZ1 <--> serviceMesh : Inter-Service Communication
+ec2UserServiceAZ2 <--> serviceMesh : Inter-Service Communication
+ec2OrderManagementAZ1 <--> serviceMesh : Inter-Service Communication
+ec2OrderManagementAZ2 <--> serviceMesh : Inter-Service Communication
+ec2MarketDataAZ1 <--> serviceMesh : Inter-Service Communication
+ec2MarketDataAZ2 <--> serviceMesh : Inter-Service Communication
+
+' Database Interactions
+ec2UserServiceAZ1 --> globalDB : Query/Update User Data
+ec2UserServiceAZ2 --> globalDB : Query/Update User Data
+ec2OrderManagementAZ1 --> globalDB : Query/Update Order Data
+ec2OrderManagementAZ2 --> globalDB : Query/Update Order Data
+ec2MarketDataAZ1 --> dynamoMarketData : Store/Retrieve Market Data
+ec2MarketDataAZ2 --> dynamoMarketData : Store/Retrieve Market Data
+
+' Caching
+ec2UserServiceAZ1 --> elasticacheUser : Cache Data
+ec2OrderManagementAZ1 --> elasticacheOrder : Cache Data
+ec2MarketDataAZ1 --> elasticacheMarketData : Cache Data
+
+' DynamoDB Acceleration
+dynamoMarketData --> dax : Accelerate DynamoDB Queries
+
+' Event Streaming
+ec2UserServiceAZ1 --> kafka : Produce Events
+ec2OrderManagementAZ1 --> kafka : Produce Events
+ec2MarketDataAZ1 --> kafka : Produce Events
+kafka --> kinesisFirehose
+
+' Logging
+ec2UserServiceAZ1 --> cloudwatchlogs : Log Data
+ec2UserServiceAZ2 --> cloudwatchlogs : Log Data
+ec2OrderManagementAZ1 --> cloudwatchlogs : Log Data
+ec2OrderManagementAZ2 --> cloudwatchlogs : Log Data
+ec2MarketDataAZ1 --> cloudwatchlogs : Log Data
+ec2MarketDataAZ2 --> cloudwatchlogs : Log Data
+
+' Log Processing
+cloudwatchlogs --> elasticsearch : Send Logs
+elasticsearch --> kibana : Visualization
+cloudwatchlogs --> cloudWatch : Send Metrics
+cloudWatch --> cloudwatchlogs : Monitor Application Metrics
+
+' Security & Compliance
+waf --> kms : Key Management
+waf --> secretsManager : Store Secrets
+macie --> s3 : Data Security
+config --> globalDB : Compliance Monitoring
+globalAccelerator --> waf
+alb --> waf
+nlb --> waf
+
+@enduml
