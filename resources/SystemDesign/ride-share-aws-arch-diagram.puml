@@ -1,0 +1,154 @@
+@startuml
+!define RECTANGLE class
+!define CLOUD package
+
+cloud "Mobile App (Rider)" as mobileRider
+cloud "Mobile App (Driver)" as mobileDriver
+cloud "Route 53" as route53
+cloud "CloudFront" as cloudFront
+cloud "Global Accelerator" as globalAccelerator
+
+rectangle "Web Application Firewall (WAF)" as waf
+rectangle "Network Load Balancer (NLB)" as nlb
+rectangle "Application Load Balancer (ALB)" as alb
+rectangle "API Gateway" as apiGateway
+
+package "User Service" {
+    rectangle "Internal Load Balancer" as ilbUser
+    rectangle "Auto Scaling Group" as asgUser
+    rectangle "EC2 Instance (AZ1)" as ec2UserServiceAZ1
+    rectangle "EC2 Instance (AZ2)" as ec2UserServiceAZ2
+    rectangle "RDS - User Database" as rdsUser
+}
+
+package "Ride Management Service" {
+    rectangle "Internal Load Balancer" as ilbRide
+    rectangle "Auto Scaling Group" as asgRide
+    rectangle "EC2 Instance (AZ1)" as ec2RideManagementAZ1
+    rectangle "EC2 Instance (AZ2)" as ec2RideManagementAZ2
+    rectangle "RDS - Ride Management DB" as rdsRideManagement
+}
+
+package "Real-Time Location Service" {
+    rectangle "Internal Load Balancer" as ilbLocation
+    rectangle "Auto Scaling Group" as asgLocation
+    rectangle "EC2 Instance (AZ1)" as ec2LocationAZ1
+    rectangle "EC2 Instance (AZ2)" as ec2LocationAZ2
+    rectangle "DynamoDB - Location Data" as dynamoLocation
+    rectangle "DAX - DynamoDB Accelerator" as dax
+}
+
+package "Caching Layer" {
+    rectangle "ElastiCache (Redis)" as elasticache
+}
+
+package "Storage" {
+    rectangle "S3 - Static Assets" as s3
+}
+
+package "Security" {
+    rectangle "Key Management Service (KMS)" as kms
+    rectangle "Secrets Manager" as secretsManager
+}
+
+package "Compliance and Governance" {
+    rectangle "AWS Macie" as macie
+    rectangle "AWS Config" as config
+}
+
+package "Logging & Monitoring" {
+    rectangle "Logstash" as logstash
+    rectangle "Elasticsearch" as elasticsearch
+    rectangle "Kibana" as kibana
+    rectangle "CloudWatch" as cloudWatch
+}
+
+package "Event Streaming" {
+    rectangle "Kafka - Event Streaming" as kafka
+}
+
+rectangle "Global Database\n(Replication Enabled)" as globalDB
+rectangle "Service Mesh (AWS App Mesh)" as serviceMesh
+
+' Main Flow
+mobileRider --> route53 : DNS Lookup
+mobileDriver --> route53 : DNS Lookup
+route53 --> cloudFront : Directs Traffic
+cloudFront --> globalAccelerator : Improved Global Routing
+globalAccelerator --> waf : Forward Requests
+waf --> nlb : Forward Requests
+nlb --> apiGateway : Forward Requests
+apiGateway --> alb : Route to ALB
+
+' Load Balancers and Services
+alb --> ilbUser : Route to User Service
+alb --> ilbRide : Route to Ride Management
+alb --> ilbLocation : Route to Location Service
+
+' User Service Flow
+ilbUser --> asgUser : Distribute Traffic
+asgUser --> ec2UserServiceAZ1 : Scale Up
+asgUser --> ec2UserServiceAZ2 : Scale Up
+
+' Ride Management Flow
+ilbRide --> asgRide : Distribute Traffic
+asgRide --> ec2RideManagementAZ1 : Scale Up
+asgRide --> ec2RideManagementAZ2 : Scale Up
+
+' Real-Time Location Flow
+ilbLocation --> asgLocation : Distribute Traffic
+asgLocation --> ec2LocationAZ1 : Scale Up
+asgLocation --> ec2LocationAZ2 : Scale Up
+
+' Inter-Service Communication
+ec2UserServiceAZ1 --> serviceMesh : Inter-Service Communication
+ec2UserServiceAZ2 --> serviceMesh : Inter-Service Communication
+ec2RideManagementAZ1 --> serviceMesh : Inter-Service Communication
+ec2RideManagementAZ2 --> serviceMesh : Inter-Service Communication
+ec2LocationAZ1 --> serviceMesh : Inter-Service Communication
+ec2LocationAZ2 --> serviceMesh : Inter-Service Communication
+
+' Database Interactions
+ec2UserServiceAZ1 --> globalDB : Query/Update User Data
+ec2UserServiceAZ2 --> globalDB : Query/Update User Data
+ec2RideManagementAZ1 --> globalDB : Query/Update Ride Data
+ec2RideManagementAZ2 --> globalDB : Query/Update Ride Data
+ec2LocationAZ1 --> globalDB : Store/Retrieve Location Data
+ec2LocationAZ2 --> globalDB : Store/Retrieve Location Data
+
+' Caching
+ec2UserServiceAZ1 --> elasticache : Cache Data
+ec2RideManagementAZ1 --> elasticache : Cache Data
+ec2LocationAZ1 --> elasticache : Cache Data
+
+' DynamoDB Acceleration
+ec2UserServiceAZ1 --> dax : Accelerate DynamoDB Queries
+ec2RideManagementAZ1 --> dax : Accelerate DynamoDB Queries
+
+' Event Streaming
+ec2UserServiceAZ1 --> kafka : Produce Events
+ec2RideManagementAZ1 --> kafka : Produce Events
+ec2LocationAZ1 --> kafka : Produce Events
+
+' Logging
+ec2UserServiceAZ1 --> logstash : Log Data
+ec2UserServiceAZ2 --> logstash : Log Data
+ec2RideManagementAZ1 --> logstash : Log Data
+ec2RideManagementAZ2 --> logstash : Log Data
+ec2LocationAZ1 --> logstash : Log Data
+ec2LocationAZ2 --> logstash : Log Data
+
+' Log Processing
+logstash --> elasticsearch : Send Logs
+elasticsearch --> kibana : Visualization
+logstash --> cloudWatch : Send Metrics
+logstash --> cloudWatch : Send Logs
+cloudWatch --> logstash : Monitor Application Metrics
+
+' Security & Compliance
+waf --> kms : Key Management
+waf --> secretsManager : Store Secrets
+macie --> s3 : Data Security
+config --> globalDB : Compliance Monitoring
+
+@enduml

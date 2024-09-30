@@ -1,0 +1,77 @@
+@startuml
+!define RECTANGLE #DDDDDD
+
+skinparam rectangle {
+    BackgroundColor RECTANGLE
+    BorderColor #AAAAAA
+    RoundCorner 10
+    FontSize 12
+    FontColor black
+}
+
+skinparam cloud {
+    BackgroundColor #EEEEEE
+    BorderColor #AAAAAA
+    RoundCorner 10
+    FontSize 12
+    FontColor black
+}
+
+cloud "Clients" {
+    rectangle "<b>Client Browser" as ClientBrowser
+    rectangle "<b>Mobile App" as MobileApp
+}
+
+cloud "AWS Route 53" as DNS {
+    rectangle "<b>Blue Environment" as BlueEnv
+    rectangle "<b>Green Environment" as GreenEnv
+}
+
+cloud "AWS VPC" as VPC {
+    rectangle "ALB Blue\n+ Auto Scaling" as ALB_Blue
+    rectangle "ALB Green\n+ Auto Scaling" as ALB_Green
+
+    rectangle "EC2 Blue Instance" as EC2_Blue
+    rectangle "EC2 Green Instance" as EC2_Green
+
+    rectangle "Blue DB" as Blue_DB
+    rectangle "Green DB" as Green_DB
+}
+
+rectangle "AWS RDS/DynamoDB" as SharedDB {
+    rectangle "<b>Shared Database" as SharedDatabase
+}
+
+rectangle "CloudWatch\nDatadog\nKibana" as Monitoring
+
+rectangle "AWS WAF\nSecurity Groups" as Security
+
+rectangle "Secrets Manager" as Secrets
+
+ClientBrowser -down-> DNS: Accesses
+MobileApp -down-> DNS: Accesses
+
+DNS --> ALB_Blue: Weighted 50% (for Active-Active)\n100% for Blue (Active-Passive)
+DNS --> ALB_Green: Weighted 50% (for Active-Active)\n0% for Green (Active-Passive)
+
+ALB_Blue --> EC2_Blue: Routes traffic
+ALB_Green --> EC2_Green: Routes traffic
+
+EC2_Blue --> Blue_DB
+EC2_Green --> Green_DB
+
+Blue_DB --> SharedDB: Replicated (Optional)
+Green_DB --> SharedDB: Replicated (Optional)
+
+EC2_Blue -right-> Monitoring: Log/Performance
+EC2_Green -left-> Monitoring: Log/Performance
+
+EC2_Blue -up-> Security: WAF Rules, Firewalls
+EC2_Green -up-> Security: WAF Rules, Firewalls
+
+EC2_Blue -up-> Secrets: Fetches keys/secrets
+EC2_Green -up-> Secrets: Fetches keys/secrets
+
+SharedDB --> Monitoring: DB Metrics
+
+@enduml

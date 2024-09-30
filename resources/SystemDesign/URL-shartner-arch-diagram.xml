@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 900">
+    <defs>
+        <style>
+            .cls-1{fill:#fff;}.cls-2{fill:#232f3e;}.cls-3{fill:#527fff;}.cls-4{fill:#3c4929;}.cls-5{fill:#1a476f;}.cls-6{fill:#bf0816;}.cls-7{fill:#6b3a19;}.cls-8{fill:#6b3b19;}.cls-9{fill:#4e342e;}.cls-10{fill:#3c552f;}.cls-11{fill:#c13c16;}.cls-12{fill:#d86613;}.cls-13{fill:#699f63;}.cls-14{fill:#01a88d;}.cls-15{fill:#3b48cc;}.cls-16{fill:#c7131f;}.cls-17{fill:#f58536;}.cls-18{fill:#9d5025;}.cls-19{fill:#fad791;}.cls-20{fill:#624a1e;}.cls-21{fill:#222e3c;}.cls-22{font-size:14px;fill:#232f3e;font-family:Arial-BoldMT, Arial;font-weight:700;}.cls-23{fill:none;stroke:#232f3e;stroke-miterlimit:10;}
+        </style>
+    </defs>
+    <rect class="cls-1" width="1200" height="900"/>
+    <g id="AWS_Cloud">
+        <path class="cls-2" d="M100,50 h1000 v800 h-1000 Z" fill-opacity="0.1"/>
+        <text x="110" y="80" class="cls-22">AWS Cloud</text>
+    </g>
+    <g id="Route53">
+        <path class="cls-3" d="M150,120 h100 v60 h-100 Z"/>
+        <text x="170" y="155" class="cls-22" fill="#fff">Route 53</text>
+    </g>
+    <g id="CloudFront">
+        <path class="cls-4" d="M300,120 h100 v60 h-100 Z"/>
+        <text x="315" y="155" class="cls-22" fill="#fff">CloudFront</text>
+    </g>
+    <g id="APIGateway">
+        <path class="cls-5" d="M450,120 h100 v60 h-100 Z"/>
+        <text x="460" y="155" class="cls-22" fill="#fff">API Gateway</text>
+    </g>
+    <g id="Cognito">
+        <path class="cls-6" d="M600,120 h100 v60 h-100 Z"/>
+        <text x="620" y="155" class="cls-22" fill="#fff">Cognito</text>
+    </g>
+    <g id="Lambda">
+        <path class="cls-7" d="M300,240 h400 v240 h-400 Z"/>
+        <text x="470" y="270" class="cls-22" fill="#fff">Lambda Functions</text>
+        <rect x="320" y="290" width="80" height="40" class="cls-8"/>
+        <text x="325" y="315" class="cls-22" fill="#fff" font-size="10">Create URL</text>
+        <rect x="420" y="290" width="80" height="40" class="cls-8"/>
+        <text x="425" y="315" class="cls-22" fill="#fff" font-size="10">Redirect</text>
+        <rect x="520" y="290" width="80" height="40" class="cls-8"/>
+        <text x="525" y="315" class="cls-22" fill="#fff" font-size="10">User Reg</text>
+        <rect x="320" y="350" width="80" height="40" class="cls-8"/>
+        <text x="325" y="375" class="cls-22" fill="#fff" font-size="10">Analytics</text>
+        <rect x="420" y="350" width="80" height="40" class="cls-8"/>
+        <text x="425" y="375" class="cls-22" fill="#fff" font-size="10">Update URL</text>
+    </g>
+    <g id="DynamoDB">
+        <path class="cls-9" d="M150,540 h200 v100 h-200 Z"/>
+        <text x="210" y="590" class="cls-22" fill="#fff">DynamoDB</text>
+    </g>
+    <g id="ElastiCache">
+        <path class="cls-10" d="M400,540 h200 v100 h-200 Z"/>
+        <text x="450" y="590" class="cls-22" fill="#fff">ElastiCache (Redis)</text>
+    </g>
+    <g id="RDS">
+        <path class="cls-11" d="M650,540 h200 v100 h-200 Z"/>
+        <text x="720" y="590" class="cls-22" fill="#fff">RDS (PostgreSQL)</text>
+    </g>
+    <g id="SQS">
+        <path class="cls-12" d="M900,240 h150 v60 h-150 Z"/>
+        <text x="950" y="275" class="cls-22" fill="#fff">SQS</text>
+    </g>
+    <g id="KinesisFirehose">
+        <path class="cls-13" d="M900,320 h150 v60 h-150 Z"/>
+        <text x="920" y="355" class="cls-22" fill="#fff">Kinesis Firehose</text>
+    </g>
+    <g id="S3">
+        <path class="cls-14" d="M900,400 h150 v60 h-150 Z"/>
+        <text x="960" y="435" class="cls-22" fill="#fff">S3</text>
+    </g>
+    <g id="Athena">
+        <path class="cls-15" d="M900,480 h150 v60 h-150 Z"/>
+        <text x="945" y="515" class="cls-22" fill="#fff">Athena</text>
+    </g>
+    <g id="CloudWatch">
+        <path class="cls-16" d="M900,560 h150 v60 h-150 Z"/>
+        <text x="930" y="595" class="cls-22" fill="#fff">CloudWatch</text>
+    </g>
+    <g id="XRay">
+        <path class="cls-17" d="M900,640 h150 v60 h-150 Z"/>
+        <text x="950" y="675" class="cls-22" fill="#fff">X-Ray</text>
+    </g>
+    <g id="WAF">
+        <path class="cls-18" d="M750,120 h100 v60 h-100 Z"/>
+        <text x="780" y="155" class="cls-22" fill="#fff">WAF</text>
+    </g>
+    <g id="Connections">
+        <path class="cls-23" d="M200,180 v30 h100 v30"/>
+        <path class="cls-23" d="M350,180 v60"/>
+        <path class="cls-23" d="M500,180 v60"/>
+        <path class="cls-23" d="M650,180 v30 h-50 v30"/>
+        <path class="cls-23" d="M800,150 h-250"/>
+        <path class="cls-23" d="M500,480 v60"/>
+        <path class="cls-23" d="M250,480 v60"/>
+        <path class="cls-23" d="M750,480 v60"/>
+        <path class="cls-23" d="M700,360 h200"/>
+        <path class="cls-23" d="M700,380 h200"/>
+        <path class="cls-23" d="M700,400 h200"/>
+        <path class="cls-23" d="M700,420 h200"/>
+        <path class="cls-23" d="M700,440 h200"/>
+        <path class="cls-23" d="M700,460 h200"/>
+    </g>
+</svg>

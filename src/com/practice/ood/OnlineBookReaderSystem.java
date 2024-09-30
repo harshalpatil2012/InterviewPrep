@@ -150,7 +150,7 @@ class UserManager {
     }
 }
 
-class User {
+public class User {
     private int userId;
     private String details;
     private int accountType;

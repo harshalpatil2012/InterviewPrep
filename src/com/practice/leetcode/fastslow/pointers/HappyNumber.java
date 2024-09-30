@@ -10,7 +10,7 @@ package com.practice.leetcode.fastslow.pointers;
  * Space Complexity: O(1). We use a constant amount of space for the variables and calculations.
  */
 public class HappyNumber {
-    public boolean isHappy1(int n) {
+    public boolean isHappy(int n) {
         int slow = n;
         int fast = n;
 
@@ -21,7 +21,7 @@ public class HappyNumber {
         return slow == 1;
     }
 
-    private int getNext1(int n) {
+    private int getNext(int n) {
         int totalSum = 0;
 
         while (n > 0) {
@@ -45,7 +45,7 @@ public class HappyNumber {
         }
     }
 
-    private boolean isHappy(int num) {
+   /* private boolean isHappy(int num) {
 
         int slow = num, fast = num;
 
@@ -55,7 +55,7 @@ public class HappyNumber {
         while (fast != slow)
 
             return slow == 1;
-    }
+    }*/
 
 
 }

@@ -1,0 +1,109 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Uber-like Ride Sharing Architecture">
+    <mxGraphModel dx="1185" dy="658" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- VPC -->
+        <mxCell id="2" value="VPC" style="swimlane;horizontal=0;startSize=30;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="100" y="20" width="900" height="600" as="geometry" />
+        </mxCell>
+        
+        <!-- Route 53 -->
+        <mxCell id="3" value="Amazon Route 53" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="2">
+          <mxGeometry x="340" y="10" width="220" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- CloudFront -->
+        <mxCell id="4" value="Amazon CloudFront" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="2">
+          <mxGeometry x="340" y="80" width="220" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- API Gateway -->
+        <mxCell id="5" value="AWS API Gateway" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="2">
+          <mxGeometry x="340" y="150" width="220" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Load Balancer -->
+        <mxCell id="6" value="Elastic Load Balancer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="2">
+          <mxGeometry x="340" y="220" width="220" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- EC2 Auto Scaling -->
+        <mxCell id="7" value="Amazon EC2 (Auto Scaling)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="2">
+          <mxGeometry x="340" y="290" width="220" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- ECS/EKS Cluster -->
+        <mxCell id="8" value="AWS ECS/EKS Cluster" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="2">
+          <mxGeometry x="40" y="290" width="220" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Service Mesh -->
+        <mxCell id="9" value="AWS App Mesh (Service Discovery)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="2">
+          <mxGeometry x="40" y="360" width="220" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- RDS -->
+        <mxCell id="10" value="Amazon RDS (PostgreSQL)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="2">
+          <mxGeometry x="40" y="430" width="220" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- DynamoDB -->
+        <mxCell id="11" value="Amazon DynamoDB" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="2">
+          <mxGeometry x="340" y="360" width="220" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- ElastiCache -->
+        <mxCell id="12" value="Amazon ElastiCache (Redis)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="2">
+          <mxGeometry x="340" y="430" width="220" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- S3 -->
+        <mxCell id="13" value="Amazon S3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="2">
+          <mxGeometry x="40" y="500" width="220" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Cognito -->
+        <mxCell id="14" value="Amazon Cognito" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="2">
+          <mxGeometry x="340" y="500" width="220" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- SQS/SNS -->
+        <mxCell id="15" value="Amazon SQS / SNS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="2">
+          <mxGeometry x="40" y="570" width="220" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Kinesis -->
+        <mxCell id="16" value="Amazon Kinesis" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="2">
+          <mxGeometry x="340" y="570" width="220" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Arrows (Service Interaction) -->
+        <mxCell id="arrow1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;exitDx=0;exitDy=0;entryDx=0;entryDy=0;strokeColor=#000000;strokeWidth=2;rounded=1;" edge="1" parent="2" source="3" target="4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="arrow2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;exitDx=0;exitDy=0;entryDx=0;entryDy=0;strokeColor=#000000;strokeWidth=2;rounded=1;" edge="1" parent="2" source="4" target="5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="arrow3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;exitDx=0;exitDy=0;entryDx=0;entryDy=0;strokeColor=#000000;strokeWidth=2;rounded=1;" edge="1" parent="2" source="5" target="6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="arrow4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;exitDx=0;exitDy=0;entryDx=0;entryDy=0;strokeColor=#000000;strokeWidth=2;rounded=1;" edge="1" parent="2" source="6" target="7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;exitDx=0;exitDy=0;entryDx=0;entryDy=0;strokeColor=#000000;strokeWidth=2;rounded=1;" edge="1" parent="2" source="7" target="8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- More arrows can be added to represent service-to-service interactions. -->
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -7,7 +7,7 @@
     <libelement value="jar://$MODULE_DIR$/lib/lombok-1.18.2.jar!/" />
     <libelement value="jar://$MODULE_DIR$/lib/ojdbc8.jar!/" />
     <libelement value="jar://$MODULE_DIR$/lib/sqljdbc4-2.0.jar.zip!/" />
-    <libelement value="file://lib/weblogic.jar" />
+    <libelement value="jar://$MODULE_DIR$/lib/weblogic.jar!/" />
     <src_description expected_position="0">
       <src_folder value="file://$MODULE_DIR$/src" expected_position="0" />
     </src_description>
@@ -77,7 +77,7 @@
     <orderEntry type="module-library">
       <library name="weblogic.jar">
         <CLASSES>
-          <root url="file://lib/weblogic.jar" />
+          <root url="jar://$MODULE_DIR$/lib/weblogic.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

@@ -1,0 +1,27 @@
+@startuml
+!define RECTANGLE(x) rectangle x
+!define DATABASE(x) database x
+!define CLOUD(x) cloud x
+
+cloud "AWS" {
+    rectangle "Application A\n(Structured Logging)" as appA
+    rectangle "Application B\n(Structured Logging)" as appB
+    rectangle "Filebeat / Fluentd" as filebeatA
+    rectangle "Filebeat / Fluentd" as filebeatB
+    rectangle "Kinesis Data Stream\nor Apache Kafka" as kinesis
+    rectangle "Kinesis Consumer\n(AWS Lambda / EC2)" as kinesisConsumer
+    rectangle "Logstash" as logstash
+    database "Elasticsearch" as elasticsearch
+    rectangle "Kibana" as kibana
+}
+
+appA --> filebeatA : Logs
+appB --> filebeatB : Logs
+filebeatA --> kinesis : Ship Logs
+filebeatB --> kinesis : Ship Logs
+kinesis --> kinesisConsumer : Stream Logs
+kinesisConsumer --> logstash : Process Logs
+logstash --> elasticsearch : Store Logs
+elasticsearch --> kibana : Query Logs
+
+@enduml
