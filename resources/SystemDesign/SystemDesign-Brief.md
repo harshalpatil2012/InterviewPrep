@@ -110,8 +110,8 @@ Exactly Once is suitable for scenarios where both data loss and duplication are 
 By understanding and selecting the appropriate processing semantic, Kafka applications can be designed to meet the desired balance between consistency, fault tolerance, and performance.
 
 give practical example in banking or payments for above 
-ChatGPT
-ChatGPT
+
+
 Let's consider a practical example in the context of a banking or payments system to illustrate each of the processing semantics:
 
 At Most Once:
