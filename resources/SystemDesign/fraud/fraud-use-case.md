@@ -36,6 +36,8 @@ Support ad-hoc querying and analysis of historical transaction data and alerts.
 
 # High-Level Architecture
 
+==============================================================================
+
 The system comprises the following components:
 
 * Data Ingestion Layer: Collects transaction and related data using Kafka.
@@ -58,7 +60,7 @@ Data Ingestion Layer:
 * Focus on scalability, fault tolerance, data validation, and security.
 
 ## Stream Processing Layer:
-
+==============================================================================
 Apache Flink for real-time processing.
 Flink SQL/Table API for declarative transformations.
 Flink State Management for stateful operations.
@@ -113,34 +115,41 @@ Reduced investigation time.
 Increased customer satisfaction.
 
 # In Detailed:
-=============
+==============================================================================
 Design a real-time fraud detection system for a banking institution that can process a high volume of transaction data
 streams, apply fraud detection rules and machine learning models, and generate alerts for suspicious transactions in
 real-time.
 
 # Functional Requirements
-
+==============================================================================
 Data Ingestion:
 Ingest transaction data from various channels (ATM, POS, online banking).
 Ingest customer profiles, merchant data, geolocation data, and device information.
+
 Data Enrichment:
 Enrich transaction data with relevant information from customer profiles, merchant data, geolocation, and device
 information.
+
 Feature Engineering:
 Calculate real-time features based on transaction data, customer behavior, and external data sources.
+
 Fraud Detection:
 Apply rule-based fraud detection logic to identify suspicious transactions.
 Utilize machine learning models for anomaly detection and pattern recognition.
+
 Alert Generation:
 Generate alerts for transactions flagged as potentially fraudulent.
 Assign severity levels to alerts based on the confidence of fraud detection.
+
 Data Storage:
 Store processed transaction data, enriched with features and fraud scores.
 Maintain a history of alerts and their resolution status.
+
 Analytics and Reporting:
 Provide real-time dashboards and reports for monitoring fraud alerts and transaction patterns.
 Support ad-hoc querying and analysis of historical transaction data and alerts.
-Non-Functional Requirements (NFRs)
+
+# Non-Functional Requirements (NFRs):
 
 Scalability: The system should be able to handle a high volume of transactions and scale horizontally to accommodate
 future growth.
@@ -418,3 +427,79 @@ Configurable Rules Engine: Use a rule engine that supports dynamic rule updates 
 Model Management: Implement a system for seamless model deployment and updates.
 Continuous Monitoring and Improvement: Regularly monitor system performance, collect feedback, and iterate on the design
 to adapt to changing requirements and fraud patterns.
+
+![Diagram](Real_time_Fraud_Detection_System.png)
+
+```plantuml
+@startuml Real-time Fraud Detection System
+
+left to right direction
+
+package "Data Ingestion" {
+[Message Broker (Kafka)] as Ingestion
+[Kafka Connect] as KafkaConnect
+[Schema Registry] as SchemaRegistry
+}
+
+package "Stream Processing" {
+[Stream Processing Engine (Flink)] as Processing
+[Flink State Management] as StateMgmt
+[Dynamic Feature Calculation] as DynamicFeatures
+}
+
+package "Fraud Detection" {
+[Machine Learning Models] as ML
+[Rules Engine (Drools)] as Rules
+[Model Serving (TensorFlow Serving)] as ModelServing
+[Feedback Loop] as FeedbackLoop
+}
+
+package "Alerting System" {
+[Alert Generation & Notification] as AlertingSystem
+[Escalation Workflow] as Escalation
+[Notification Service (Email, SMS)] as Notification
+}
+
+package "Data Storage" {
+[Real-time DB (Cassandra)] as RealtimeDB
+[Data Warehouse (Redshift, BigQuery)] as DW
+[Sharding & Replication] as Sharding
+}
+
+package "Analytics & Visualization" {
+[BI Tool (Tableau/Power BI)] as BI
+[Real-time Dashboards] as Dashboards
+[Historical Data Querying] as HistoricalQueries
+}
+
+cloud "External Systems" {
+[Transaction Sources] as Sources
+[Fraud Analysts] as Analysts
+[Customer Profiles, Merchant Data] as ExternalData
+}
+
+Sources --> Ingestion
+ExternalData --> Ingestion
+Ingestion --> KafkaConnect
+KafkaConnect --> SchemaRegistry
+KafkaConnect --> Processing
+Processing --> StateMgmt
+Processing --> DynamicFeatures
+DynamicFeatures --> ML
+DynamicFeatures --> Rules
+ML --> ModelServing
+ML --> FeedbackLoop
+Rules --> AlertingSystem
+ModelServing --> AlertingSystem
+AlertingSystem --> Escalation
+AlertingSystem --> Notification
+AlertingSystem --> Analysts
+Notification --> Analysts
+Processing --> RealtimeDB
+RealtimeDB --> DW
+DW --> BI
+BI --> Dashboards
+DW --> HistoricalQueries
+Dashboards --> Analysts
+HistoricalQueries --> Analysts
+@enduml
