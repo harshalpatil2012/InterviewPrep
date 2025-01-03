@@ -5,19 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="542ad7c0-14f3-4054-8174-deb7853e7903" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/SystemDesign/Availability-Metrix.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/SystemDesign/Tiny-URL-Design.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/SystemDesign/blue-green.puml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/SystemDesign/log-streaming.puml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/SystemDesign/ride-hailing.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/SystemDesign/ride-share-aws-arch-diagram.puml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/Java/JavaQuestions.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/LowLevelDesign/CircuitBreakerDesign" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/LowLevelDesign/LowLevelDesignProblems.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/LowLevelDesign/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InterviewPrep.iml" beforeDir="false" afterPath="$PROJECT_DIR$/InterviewPrep.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grokking_to_leetcode.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/practice/leetcode/fastslow/pointers/HappyNumber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/practice/leetcode/fastslow/pointers/HappyNumber.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/practice/ood/OnlineBookReaderSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/practice/ood/OnlineBookReaderSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/SystemDesign/SystemDesignNotes.doc" beforeDir="false" afterPath="$PROJECT_DIR$/resources/SystemDesign/SystemDesignNotes.doc" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +28,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -48,9 +45,12 @@
     "Application.WateringPlants.executor": "Run",
     "Application.WateringPlantsII.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "dart.analysis.tool.window.visible": "false",
     "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/GitHubProjects/InterviewPrep/resources/SystemDesign",
+    "last_opened_file_path": "D:/GitHubProjects/InterviewPrep",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -59,7 +59,8 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "org.plantuml.idea.settings.PlantUmlSettingsPage",
+    "show.migrate.to.gradle.popup": "false",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -68,10 +69,16 @@
       <recent name="com.test.activity" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\GitHubProjects\InterviewPrep\resources\SystemDesign\Trading-Platform\ride-hailing" />
+      <recent name="D:\GitHubProjects\InterviewPrep\resources\SystemDesign\Trading-Platform" />
       <recent name="D:\GitHubProjects\InterviewPrep\resources\SystemDesign" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\GitHubProjects\InterviewPrep\resources\Karat" />
+      <recent name="D:\GitHubProjects\InterviewPrep\resources\SystemDesign\fraud" />
+      <recent name="D:\GitHubProjects\InterviewPrep\resources\SystemDesign\url-shortner" />
       <recent name="D:\GitHubProjects\InterviewPrep\resources\SystemDesign" />
+      <recent name="D:\GitHubProjects\InterviewPrep\resources\SystemDesign\Trading-Platform\ride-hailing" />
     </key>
   </component>
   <component name="RunManager" selected="Application.WateringPlantsII">
@@ -111,8 +118,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
-        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
       </set>
     </attachedChunks>
   </component>
@@ -129,7 +136,18 @@
       <workItem from="1724059327077" duration="1521000" />
       <workItem from="1726397627425" duration="4823000" />
       <workItem from="1727607674623" duration="6841000" />
-      <workItem from="1727678456516" duration="411000" />
+      <workItem from="1727678456516" duration="14012000" />
+      <workItem from="1727753989458" duration="12311000" />
+      <workItem from="1728717208218" duration="599000" />
+      <workItem from="1728718746511" duration="67000" />
+      <workItem from="1728734292610" duration="544000" />
+      <workItem from="1729160110233" duration="3490000" />
+      <workItem from="1730012726065" duration="7000" />
+      <workItem from="1730173511036" duration="1528000" />
+      <workItem from="1731752100562" duration="7341000" />
+      <workItem from="1733208738173" duration="1028000" />
+      <workItem from="1733815491990" duration="4228000" />
+      <workItem from="1735832672774" duration="733000" />
     </task>
     <servers />
   </component>

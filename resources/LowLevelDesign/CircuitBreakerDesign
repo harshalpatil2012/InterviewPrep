@@ -1,0 +1,174 @@
+import java.time.Duration;
+import java.time.Instant;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.Supplier;
+
+public class CircuitBreaker {
+    // Configuration parameters
+    private final int failureThreshold;
+    private final Duration slidingWindowDuration;
+    private final Duration openToHalfOpenTimeout;
+
+    // State tracking
+    private final AtomicInteger errorCount;
+    private final AtomicInteger totalCount;
+    private volatile State state;
+    private volatile Instant lastFailureTime;
+
+    // Circuit Breaker States
+    private enum State {
+        CLOSED,   // Normal operation
+        OPEN,     // Failing fast
+        HALF_OPEN // Tentatively allowing some requests to test recovery
+    }
+
+    // Builder for configurable circuit breaker
+    public static class Builder {
+        private int failureThreshold = 5;
+        private Duration slidingWindowDuration = Duration.ofMinutes(1);
+        private Duration openToHalfOpenTimeout = Duration.ofSeconds(30);
+
+        public Builder failureThreshold(int threshold) {
+            this.failureThreshold = threshold;
+            return this;
+        }
+
+        public Builder slidingWindowDuration(Duration duration) {
+            this.slidingWindowDuration = duration;
+            return this;
+        }
+
+        public Builder openToHalfOpenTimeout(Duration timeout) {
+            this.openToHalfOpenTimeout = timeout;
+            return this;
+        }
+
+        public CircuitBreaker build() {
+            return new CircuitBreaker(this);
+        }
+    }
+
+    private CircuitBreaker(Builder builder) {
+        this.failureThreshold = builder.failureThreshold;
+        this.slidingWindowDuration = builder.slidingWindowDuration;
+        this.openToHalfOpenTimeout = builder.openToHalfOpenTimeout;
+        
+        this.errorCount = new AtomicInteger(0);
+        this.totalCount = new AtomicInteger(0);
+        this.state = State.CLOSED;
+        this.lastFailureTime = Instant.now();
+    }
+
+    // Static method to create a builder
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    /**
+     * Execute the given supplier with circuit breaker logic
+     * 
+     * @param supplier The operation to execute
+     * @return Result of the operation
+     * @throws CircuitBreakerOpenException if circuit is open
+     */
+    public <T> T execute(Supplier<T> supplier) {
+        // Check and potentially transition circuit state
+        checkAndTransitionState();
+
+        // Reject if circuit is open
+        if (state == State.OPEN) {
+            throw new CircuitBreakerOpenException("Circuit is OPEN. Requests are blocked.");
+        }
+
+        try {
+            // Increment total request count
+            totalCount.incrementAndGet();
+
+            // Execute the supplier
+            T result = supplier.get();
+
+            // Reset error count on successful execution when in HALF_OPEN
+            if (state == State.HALF_OPEN) {
+                resetToClosedState();
+            }
+
+            return result;
+        } catch (Exception e) {
+            // Handle failures
+            recordFailure();
+            throw e;
+        }
+    }
+
+    /**
+     * Check and transition circuit state based on current conditions
+     */
+    private synchronized void checkAndTransitionState() {
+        Instant now = Instant.now();
+
+        switch (state) {
+            case CLOSED:
+                // Check if failure threshold is reached
+                if (errorCount.get() >= failureThreshold) {
+                    state = State.OPEN;
+                    lastFailureTime = now;
+                }
+                break;
+
+            case OPEN:
+                // Check if enough time has passed to move to HALF_OPEN
+                if (Duration.between(lastFailureTime, now).compareTo(openToHalfOpenTimeout) >= 0) {
+                    state = State.HALF_OPEN;
+                }
+                break;
+
+            case HALF_OPEN:
+                // Half-open state allows one trial, will transition based on that result
+                break;
+        }
+    }
+
+    /**
+     * Record a failure and update circuit state
+     */
+    private void recordFailure() {
+        errorCount.incrementAndGet();
+
+        // If in HALF_OPEN state, immediately go back to OPEN on first failure
+        if (state == State.HALF_OPEN) {
+            state = State.OPEN;
+            lastFailureTime = Instant.now();
+        }
+    }
+
+    /**
+     * Reset to closed state when operation succeeds in HALF_OPEN
+     */
+    private void resetToClosedState() {
+        state = State.CLOSED;
+        errorCount.set(0);
+        totalCount.set(0);
+    }
+
+    /**
+     * Custom exception for circuit breaker open state
+     */
+    public static class CircuitBreakerOpenException extends RuntimeException {
+        public CircuitBreakerOpenException(String message) {
+            super(message);
+        }
+    }
+
+    // Getters for state inspection
+    public int getErrorCount() {
+        return errorCount.get();
+    }
+
+    public int getTotalCount() {
+        return totalCount.get();
+    }
+
+    public State getCurrentState() {
+        return state;
+    }
+}
