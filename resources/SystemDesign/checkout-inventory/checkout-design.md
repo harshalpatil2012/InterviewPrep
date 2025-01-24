@@ -1,4 +1,4 @@
-Here's a high-level system design for a scalable checkout system for a global ticketing platform like BookMyShow, with a focus on inventory management and scalability. Let's break it down into functional and non-functional requirements, along with the key components of the system.
+H  igh-level system design for a scalable checkout system for a global ticketing platform like BookMyShow, with a focus on inventory management and scalability. Let's break it down into functional and non-functional requirements, along with the key components of the system.
 
 Title: Scalable Global Ticketing Checkout System with Precise Inventory Management
 

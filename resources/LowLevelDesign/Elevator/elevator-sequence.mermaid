@@ -1,0 +1,53 @@
+sequenceDiagram
+    participant User
+    participant ElevatorSystem
+    participant RequestProcessor
+    participant Elevator
+    participant WeightManager
+    participant DoorController
+    participant AccessController
+
+    User->>ElevatorSystem: processRequest(request)
+    activate ElevatorSystem
+    
+    ElevatorSystem->>RequestProcessor: submitRequest(request)
+    activate RequestProcessor
+    
+    RequestProcessor->>RequestProcessor: findBestElevator()
+    RequestProcessor-->>ElevatorSystem: selectedElevator
+    deactivate RequestProcessor
+    
+    ElevatorSystem->>Elevator: addRequest(request)
+    activate Elevator
+    
+    Elevator->>AccessController: validateAccess(floor, cardId)
+    activate AccessController
+    AccessController-->>Elevator: accessGranted
+    deactivate AccessController
+    
+    alt accessGranted
+        Elevator->>WeightManager: canAddWeight(weight)
+        activate WeightManager
+        WeightManager-->>Elevator: weightAccepted
+        deactivate WeightManager
+        
+        alt weightAccepted
+            Elevator->>Elevator: queueRequest(request)
+            Elevator->>Elevator: updateDirection()
+            Elevator->>DoorController: openDoor()
+            activate DoorController
+            DoorController-->>Elevator: doorOpened
+            deactivate DoorController
+            
+            Elevator->>Elevator: processRequest()
+            Elevator-->>ElevatorSystem: requestAccepted
+        else weightRejected
+            Elevator-->>ElevatorSystem: weightLimitExceeded
+        end
+    else accessDenied
+        Elevator-->>ElevatorSystem: accessDenied
+    end
+    
+    deactivate Elevator
+    ElevatorSystem-->>User: requestStatus
+    deactivate ElevatorSystem

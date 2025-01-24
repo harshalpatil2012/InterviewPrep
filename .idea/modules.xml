@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/InterviewPrep.iml" filepath="$PROJECT_DIR$/InterviewPrep.iml" />
+      <module fileurl="file://$PROJECT_DIR$/elevator-system.iml" filepath="$PROJECT_DIR$/elevator-system.iml" />
     </modules>
   </component>
 </project>

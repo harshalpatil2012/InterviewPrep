@@ -1,0 +1,76 @@
+graph LR
+    subgraph Client Layer
+        PaymentService[Payment Service]
+        MobileApp[Mobile App]
+        WebApp[Web App]
+    end
+
+    subgraph Message Bus
+        Kafka[Apache Kafka]
+    end
+
+    subgraph Core Services
+        NotificationService[Notification Service]
+        TemplateService[Template Service]
+        UserPrefService[User Preferences]
+    end
+
+    subgraph Protection Layer
+        RateLimiter[Rate Limiter]
+        Dedup[Deduplication]
+    end
+
+    subgraph Channel Layer
+        SMS[SMS Service]
+        Email[Email Service]
+        Push[Push Service]
+        InApp[In-App Service]
+    end
+
+    subgraph Providers
+        SMSVendors[SMS Vendors]
+        EmailVendors[Email Providers]
+        FCM[Firebase CM]
+        APNS[Apple Push]
+    end
+
+    subgraph Storage
+        Redis[(Redis Cache)]
+        MongoDB[(MongoDB)]
+        TimeseriesDB[(Analytics DB)]
+    end
+
+%% Connections
+    PaymentService --> Kafka
+    MobileApp --> Kafka
+    WebApp --> Kafka
+    Kafka --> NotificationService
+
+    NotificationService --> TemplateService
+    NotificationService --> UserPrefService
+    NotificationService --> RateLimiter
+    NotificationService --> Dedup
+
+    RateLimiter --> SMS
+    RateLimiter --> Email
+    RateLimiter --> Push
+    RateLimiter --> InApp
+
+    SMS --> SMSVendors
+    Email --> EmailVendors
+    Push --> FCM
+    Push --> APNS
+    InApp --> WebApp
+
+    NotificationService --> Redis
+    NotificationService --> MongoDB
+    NotificationService --> TimeseriesDB
+
+%% Styling
+    classDef primary fill:#d1eaff,stroke:#333,stroke-width:2px
+    classDef secondary fill:#e9f5ff,stroke:#333
+    classDef storage fill:#ffe6cc,stroke:#333
+
+    class NotificationService,TemplateService,UserPrefService primary
+    class SMS,Email,Push,InApp secondary
+    class Redis,MongoDB,TimeseriesDB storage
